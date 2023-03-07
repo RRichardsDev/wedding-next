@@ -1,0 +1,138 @@
+body {
+  background-image: url('../imgs/bg.png');
+  background-size: cover;
+  background-color: #18241a;  
+  /* background-repeat:   repeat; */
+  /* background-position: center center; */
+}
+.hero {
+  background-image: url('../imgs/t&l.png');
+  background-size: cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+  min-height: 30vh;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  
+  /* width: fit-content; */
+  /* margin: auto; */
+}
+.headings {
+  color: rgb(205, 205, 205);
+  font-weight: bolder;
+  width: max-content;
+  padding: 2rem;
+  text-overflow: ellipsis;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'EB Garamond';
+}
+.headings .h1{
+  font-size: 1.6rem;
+  font-family: 'EB Garamond';
+  color: #fff;
+  font-weight: lighter;
+}
+.headings h2{
+  font-size: 1.5rem;
+}
+.headings .h3{
+  padding-top: 1rem;
+  font-size: 1.8rem;
+  color: #fff;
+}
+.description {
+  color: #fff;
+  text-align: center;
+  font-family: 'EB Garamond';
+}
+.description p {
+  margin: 2rem;
+  font-size: 1.3rem;
+}
+
+nav{
+  background-color: rgb(255, 255, 255, 0);
+}
+label {
+  font-family: 'EB Garamond';
+  font-size: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(255, 255, 255);
+}
+.dotted-input {
+  max-width: 50%;
+  border: none;
+  border-bottom: 1px dotted rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  font-size: 1.2rem;
+  font-family: 'EB Garamond';
+
+  /* font-family: 'Dancing Script', cursive; */
+  /* text-align: center; */
+  /* padding-left: 2rem; */
+  text-indent: 10px;
+  color: rgb(205, 205, 205);
+}
+.description .bigger-text {
+  font-size: 2.2rem;
+  padding: 1rem;
+}
+.form-group {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+}
+.submit-button {
+  color: #fff;
+  width: min-content;
+  padding: 1rem;
+  border-radius: 10px;;
+  border: 1px solid #fff;
+  text-decoration: none;
+}
+.submit-button:hover {
+  border: 1px solid #416238;
+}
+.drink-label {
+  margin-right: 3rem;
+  margin-left: 0;
+}
+@-webkit-keyframes autofill {
+  0%,100% {
+      color: rgb(205, 205, 205);    
+      background: transparent;
+  }
+}
+#drink-select {
+  appearance: none;
+  -webkit-appearance: none;
+  
+}
+
+input:-webkit-autofill {
+  -webkit-animation-delay: 1s; /* Safari support - any positive time runs instantly */
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+}
+@media (min-width: 768px) {
+    .headings .h1{
+      font-size: 2.2rem;
+      font-family: 'EB Garamond';
+      font-weight: lighter;
+    }
+    .hero{
+      min-height: 55vh;
+    }
+    #drink {
+      display: inline-block;
+    }
+  }
