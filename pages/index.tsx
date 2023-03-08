@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 const Home: NextPage = () => {
-  fetch ('http://localhost:3000/api/sendEmail', {
+  fetch ('http://localhost:3000/api/controllers/sendEmail', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
