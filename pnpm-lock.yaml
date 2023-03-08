@@ -7,7 +7,7 @@ specifiers:
   '@types/react-dom': 18.0.6
   autoprefixer: ^10.4.12
   next: latest
-  nodemailer: ^6.9.1
+  nodemailer: 6.9.1
   postcss: ^8.4.18
   react: 18.2.0
   react-dom: 18.2.0
@@ -15,7 +15,6 @@ specifiers:
   typescript: 4.9.4
 
 dependencies:
-  '@types/nodemailer': 6.4.7
   next: 13.2.3_biqbaboplfbrettd7655fr4n2y
   nodemailer: 6.9.1
   react: 18.2.0
@@ -23,6 +22,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.11.3
+  '@types/nodemailer': 6.4.7
   '@types/react': 18.0.21
   '@types/react-dom': 18.0.6
   autoprefixer: 10.4.13_postcss@8.4.21
@@ -182,12 +182,13 @@ packages:
 
   /@types/node/18.11.3:
     resolution: {integrity: sha512-fNjDQzzOsZeKZu5NATgXUPsaFaTxeRgFXoosrHivTl8RGeV733OLawXsGfEk9a8/tySyZUyiZ6E8LcjPFZ2y1A==}
+    dev: true
 
   /@types/nodemailer/6.4.7:
     resolution: {integrity: sha512-f5qCBGAn/f0qtRcd4SEn88c8Fp3Swct1731X4ryPKqS61/A3LmmzN8zaEz7hneJvpjFbUUgY7lru/B/7ODTazg==}
     dependencies:
       '@types/node': 18.11.3
-    dev: false
+    dev: true
 
   /@types/prop-types/15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
