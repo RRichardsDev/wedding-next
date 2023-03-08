@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
     <p className="h3 bigger-text">7th December 2024</p>
   </div>
-  <div className="hero"><img src="/t&l.png"/></div>
+  <div className="hero"></div>
 
   <div className="container mx-auto description">
     <p className="bigger-text">SAVE THE DATE!</p>
