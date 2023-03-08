@@ -7,9 +7,17 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<TData>
 ) {
-  // TODO: check if the request is a POST request
-  function sendEmail(): NextApiResponse<TData>{
-    var transporter = nodemailer.createTransport({
+  if (req.method === 'POST')
+    sendEmail(req.body.name, req.body.email, req.body.allergies, req.body.diet, req.body.drink)
+
+  function sendEmail(
+    name: string,
+    email: string,
+    allergies: string,
+    dietary: string,
+    drinks: string,
+  ): NextApiResponse<TData>{
+    const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: 'rhodri.development@gmail.com',
@@ -17,12 +25,28 @@ export default function handler(
       }
     });
     
-    var mailOptions = {
-      from: 'rhodri.development@gmail.com',
+    const mailOptions = {
+      from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
       to: 'r.richards96@gmail.com',
-      subject: 'RSVP Wedding',
-      text: 'That was easy!',
-      html: '<h1>That was easy!</h1><p>Your RSVP has been sent</p>'
+      subject: `Save the Date | Response`,
+      text: `${name} has responded to your wedding invitation!`,
+      html: `
+      <html>
+        <body>
+          <img src:"cid:image"/>
+          <p><b>Name: </b>${name}</p>
+          <p><b>Email: </b>${email}</p>
+          <p><b>Allergies: </b>${allergies}</p>
+          <p><b>Dietary: </b>${dietary}</p>
+          <p><b>Drinks: </b>${drinks}</p>
+        </body>
+      </html>
+      `,
+      attachments: [{
+        filename: 'tl.png',
+        path: `./public/tl.png`,
+        cid: 'image'
+      }],
     };
     
     transporter.sendMail(mailOptions, (error, info) => {

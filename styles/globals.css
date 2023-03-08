@@ -9,7 +9,7 @@ body {
   /* background-position: center center; */
 }
 .hero {
-  background-image: url('/t&l.png');
+  background-image: url('/tl.png');
   background-size: cover;
   background-repeat:   no-repeat;
   background-position: center center;
@@ -104,6 +104,7 @@ label {
 }
 .submit-button:hover {
   border: 1px solid #416238;
+  cursor: pointer;
 }
 .drink-label {
   margin-right: 3rem;

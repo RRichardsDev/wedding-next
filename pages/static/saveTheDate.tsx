@@ -1,9 +1,38 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react';
 // import '../../styles/style.css'
 
 const Home: NextPage = () => {
+  const [ formItems, setFormItems ] = useState({
+    name: '',
+    email: '',
+    allergies: '',
+    diet: '',
+    drink: ''
+  });
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormItems({...formItems, [e.target.name]: e.target.value})
+  }
+
+  const sendResponse = async (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault()
+    console.log('sending response')
+    fetch ('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name:  formItems.name,
+        email: formItems.email,
+        allergies: formItems.allergies,
+        diet: formItems.diet,
+        drink: formItems.drink
+    })
+  })
+  }
   return (
     <>
     <div className="headings flex mx-auto flex-col text-center">
@@ -32,7 +61,7 @@ const Home: NextPage = () => {
       <div className="flex flex-col justify-center text-center">
         <div className="form-group">
           <label >Name:</label>
-          <input name="name" type="name" className="dotted-input" id="name" placeholder="Tom Riddle"/>
+          <input name="name" type="name" className="dotted-input" id="name" placeholder="Tom Riddle" onChange={ e => handleFieldChange(e)}/>
         </div>
         <div className="form-group">
           <label >Email address:</label>
@@ -63,7 +92,7 @@ const Home: NextPage = () => {
         </div>
         <div className="flex justify-center text-center">
 
-          <a className="submit-button" id="submit" type="submit">Confirm</a>
+          <a className="submit-button" id="submit" onClick={ e => sendResponse(e) }>Confirm</a>
         </div>
       </div>
     </form>
