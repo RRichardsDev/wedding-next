@@ -13,7 +13,8 @@ const Home: NextPage = () => {
     drink: ''
   });
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormItems({...formItems, [e.target.name]: e.target.value})
+    console.log('test')
+    // setFormItems({...formItems, [e.target.getAttribute('name')]: e.target.value})
   }
 
   const sendResponse = async (e: React.MouseEvent<HTMLElement>) => {
@@ -65,15 +66,15 @@ const Home: NextPage = () => {
         </div>
         <div className="form-group">
           <label >Email address:</label>
-          <input name="email" type="email" className="dotted-input" id="email" placeholder="name@example.com"/>
+          <input name="email" type="email" className="dotted-input" id="email" placeholder="name@example.com" onChange={ e => handleFieldChange(e)}/>
         </div>
         <div className="form-group">
           <label>Allergies:</label>
-          <input name="alergies" type="text" className="dotted-input" id="alergies" placeholder="Peanuts ..."/>
+          <input name="alergies" type="text" className="dotted-input" id="alergies" placeholder="Peanuts ..." onChange={ e => handleFieldChange(e)}/>
         </div>
         <div className="form-group">
           <label >Dietary Requirements:</label>
-          <input name="diet" type="text" className="dotted-input" id="diet" placeholder="Vegan ..."/>
+          <input name="diet" type="text" className="dotted-input" id="diet" placeholder="Vegan ..." onChange={ e => handleFieldChange(e)}/>
         </div>
         <div className="form-group justify-center">
           <label id="drink" className="block">Arrival Drink: </label>

@@ -34,11 +34,11 @@ body {
   text-overflow: ellipsis;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'EB Garamond';
+  font-family: var(--eb-font);
 }
 .headings .h1{
   font-size: 1.6rem;
-  font-family: 'EB Garamond';
+  font-family: var(--eb-font);
   color: #fff;
   font-weight: lighter;
 }
@@ -53,7 +53,7 @@ body {
 .description {
   color: #fff;
   text-align: center;
-  font-family: 'EB Garamond';
+  font-family: var(--eb-font);
 }
 .description p {
   margin: 2rem;
@@ -64,7 +64,7 @@ nav{
   background-color: rgb(255, 255, 255, 0);
 }
 label {
-  font-family: 'EB Garamond';
+  font-family: var(--eb-font);
   font-size: 1.5rem;
   margin-left: auto;
   margin-right: auto;
@@ -77,7 +77,7 @@ label {
   background-color: rgba(255, 255, 255, 0);
   width: 100%;
   font-size: 1.2rem;
-  font-family: 'EB Garamond';
+  font-family: var(--eb-font);
 
   /* font-family: 'Dancing Script', cursive; */
   /* text-align: center; */
