@@ -44,7 +44,10 @@ const Home: NextPage = () => {
 
     <p className="h3 bigger-text">7th December 2024</p>
   </div>
-  <div className="hero"></div>
+
+  <div className="hero">
+    <Image src="/tl.png" alt="Picture of the tom proposing to lottie" width={1080} height={840} />
+  </div>
 
   <div className="container mx-auto description">
     <p className="bigger-text">SAVE THE DATE!</p>

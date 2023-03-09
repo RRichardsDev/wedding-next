@@ -9,7 +9,7 @@ body {
   /* background-position: center center; */
 }
 .hero {
-  background-image: url('/tl.png');
+  /* background-image: url('/tl.png'); */
   background-size: cover;
   background-repeat:   no-repeat;
   background-position: center center;
