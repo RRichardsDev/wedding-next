@@ -3,6 +3,7 @@ import nodemailer from 'nodemailer';
 type TData = {
   name: string
 }
+
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<TData>
@@ -33,7 +34,6 @@ export default function handler(
       html: `
       <html>
         <body>
-          <img src:"cid:image"/>
           <p><b>Name: </b>${name}</p>
           <p><b>Email: </b>${email}</p>
           <p><b>Allergies: </b>${allergies}</p>
@@ -41,12 +41,7 @@ export default function handler(
           <p><b>Drinks: </b>${drinks}</p>
         </body>
       </html>
-      `,
-      attachments: [{
-        filename: 'tl.png',
-        path: `./public/tl.png`,
-        cid: 'image'
-      }],
+      `
     };
     
     transporter.sendMail(mailOptions, (error, info) => {

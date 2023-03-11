@@ -1,4 +1,5 @@
-import type { NextPage } from 'next'
+import { NextPage } from 'next'
+import { redirect, useRouter} from 'next/navigation'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react';
@@ -12,10 +13,16 @@ const Home: NextPage = () => {
     diet: '',
     drink: ''
   });
-  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('test')
-    // setFormItems({...formItems, [e.target.getAttribute('name')]: e.target.value})
+  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    // console.log('test')
+    console.log(e.target.getAttribute('name'))
+    const filedname = e.target.getAttribute('name');
+    if (filedname === null) return;
+
+    setFormItems({...formItems, [filedname]: e.target.value})
+
   }
+  const router = useRouter();
 
   const sendResponse = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
@@ -31,8 +38,9 @@ const Home: NextPage = () => {
         allergies: formItems.allergies,
         diet: formItems.diet,
         drink: formItems.drink
+      })
     })
-  })
+    router.push('/static/thankyou')
   }
   return (
     <>
@@ -73,7 +81,7 @@ const Home: NextPage = () => {
         </div>
         <div className="form-group">
           <label>Allergies:</label>
-          <input name="alergies" type="text" className="dotted-input" id="alergies" placeholder="Peanuts ..." onChange={ e => handleFieldChange(e)}/>
+          <input name="allergies" type="text" className="dotted-input" id="allergies" placeholder="Peanuts ..." onChange={ e => handleFieldChange(e)}/>
         </div>
         <div className="form-group">
           <label >Dietary Requirements:</label>
@@ -82,8 +90,8 @@ const Home: NextPage = () => {
         <div className="form-group justify-center">
           <label id="drink" className="block">Arrival Drink: </label>
 
-          <select name="drink" id="drink-select" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-teal-900 dark:bg-emerald-800 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2 ">
-            <option value=""  disabled defaultChecked hidden>Please Select</option>
+          <select name="drink" defaultValue="" id="drink-select" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-teal-900 dark:bg-emerald-800 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2 " onChange={ e => handleFieldChange(e)}>
+            <option value=""  disabled hidden>Please Select</option>
             
             <option value="Prosecco">Prosecco</option>
             <option value="Peroni">Peroni</option>
