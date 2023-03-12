@@ -40,7 +40,7 @@ const Home: NextPage = () => {
         drink: formItems.drink
       })
     })
-    router.push('/static/thankyou')
+    router.push('/thankyou')
   }
   return (
     <>
@@ -63,7 +63,7 @@ const Home: NextPage = () => {
       guest.</p>
     <p>We are very sorry, but we are unable to extend the invitation to children. We hope you understand and can still
       join us on our special day.</p>
-      <p><em><b>This is not an RSVP we just want to get an idea.</b></em></p>
+      <p><em><b>This is not an RSVP we just want to get an idea of preference.</b></em></p>
     <p><em>Full Invitation to follow.</em></p>
     <h2>🤍</h2>
   </div>
