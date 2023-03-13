@@ -27,7 +27,7 @@ const Home: NextPage = () => {
   const sendResponse = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     console.log('sending response')
-    fetch ('/api/sendEmail', {
+    const res  = await fetch ('/api/sendEmail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -40,7 +40,8 @@ const Home: NextPage = () => {
         drink: formItems.drink
       })
     })
-    router.push('/thankyou')
+    console.log(res);
+    // router.push('/thankyou')
   }
   return (
     <>

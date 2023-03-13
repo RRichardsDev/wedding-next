@@ -47,11 +47,12 @@ export default function handler(
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
+        res.status(500).json({ name: error.message })
       } else {
         console.log('Email sent: ' + info.response);
+        res.status(200).json({ name: info.response })
       }
     });
-     res.status(200).json({ name: "Email sent" })
      return res;
   }
 }
