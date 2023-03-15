@@ -41,7 +41,7 @@ const Home: NextPage = () => {
       })
     })
     console.log(res);
-    // router.push('/thankyou')
+    router.push('/thankyou')
   }
   return (
     <>
