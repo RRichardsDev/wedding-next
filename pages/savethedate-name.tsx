@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     allergies: '',
     diet: '',
     drink: ''
-  });
+  }); 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     // console.log('test')
     console.log(e.target.getAttribute('name'))
