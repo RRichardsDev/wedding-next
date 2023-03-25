@@ -17,7 +17,8 @@ const Home: NextPage = () => {
         <h2>🤍</h2>
         <div className="w-screen">
 
-        <img className='w-10/12 m-auto' src="/tl.png" alt="tom proposing to lottie" />
+        {/* <img className='w-10/12 m-auto' src="/tl.png" alt="tom proposing to lottie" /> */}
+        <Image className="m-auto pt-2 w-10/12" src="/tl.png" alt="Picture of the tom proposing to lottie" width={1080} height={840} />
         </div>
 
         <p className="h3 bigger-text">7th December 2024</p>
