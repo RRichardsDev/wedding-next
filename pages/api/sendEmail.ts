@@ -9,14 +9,11 @@ export default function handler(
   res: NextApiResponse<TData>
 ) {
   if (req.method === 'POST')
-    sendEmail(req.body.name, req.body.email, req.body.allergies, req.body.diet, req.body.drink)
+    sendEmail(req, res)
 
   function sendEmail(
-    name: string,
-    email: string,
-    allergies: string,
-    dietary: string,
-    drinks: string,
+    req: NextApiRequest,
+    res: NextApiResponse<TData>
   ): NextApiResponse<TData>{
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -34,11 +31,11 @@ export default function handler(
       html: `
       <html>
         <body>
-          <p><b>Name: </b>${name}</p>
-          <p><b>Email: </b>${email}</p>
-          <p><b>Allergies: </b>${allergies}</p>
-          <p><b>Dietary: </b>${dietary}</p>
-          <p><b>Drinks: </b>${drinks}</p>
+          <p><b>Name: </b>${req.body.name}</p>
+          <p><b>Email: </b>${req.body.email}</p>
+          <p><b>Allergies: </b>${req.body.allergies}</p>
+          <p><b>Dietary: </b>${req.body.dietary}</p>
+          <p><b>Drinks: </b>${req.body.drinks}</p>
         </body>
       </html>
       `
