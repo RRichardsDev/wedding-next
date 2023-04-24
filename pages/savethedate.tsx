@@ -17,7 +17,11 @@ const Home: NextPage = () => {
     // console.log('test')
     console.log(e.target.getAttribute('name'))
     const filedname = e.target.getAttribute('name');
-    if (filedname === null) return;
+    if (filedname === null) {
+      // add class to input
+      e.target.classList.add('border-red-500');
+      return;
+    }
 
     setFormItems({...formItems, [filedname]: e.target.value})
 
@@ -26,7 +30,24 @@ const Home: NextPage = () => {
 
   const sendResponse = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
-    console.log('sending response')
+    console.log('sending response');
+    let invalidValues = false;
+    for( const [key, value] of Object.entries(formItems)) {
+      if (value === '') {
+        const input = document.getElementById(key);
+        if (input) {
+          input.classList.add('!border-red-500');
+          invalidValues = true;
+        }
+      } else {
+        const input = document.getElementById(key);
+        if (input) {
+          input.classList.remove('!border-red-500');
+        }
+      }
+    }
+    if (invalidValues) return;
+    
     const res  = await fetch ('/api/sendEmail', {
       method: 'POST',
       headers: {
@@ -41,6 +62,9 @@ const Home: NextPage = () => {
       })
     })
     console.log(res);
+    // if loop thorugh formItems and check if any are empty
+    // if so add class to input
+
     router.push('/thankyou')
   }
   return (
@@ -74,7 +98,7 @@ const Home: NextPage = () => {
       <div className="flex flex-col justify-center text-center">
         <div className="form-group">
           <label >Name:</label>
-          <input name="name" type="name" className="dotted-input" id="name" placeholder="Tom Riddle" onChange={ e => handleFieldChange(e)}/>
+          <input required name="name" type="name" className="dotted-input" id="name" placeholder="Tom Riddle" onChange={ e => handleFieldChange(e)}/>
         </div>
         <div className="form-group">
           <label >Email address:</label>
@@ -88,7 +112,7 @@ const Home: NextPage = () => {
           <label >Dietary Requirements:</label>
           <input name="diet" type="text" className="dotted-input" id="diet" placeholder="Vegan ..." onChange={ e => handleFieldChange(e)}/>
         </div>
-        <div className="form-group justify-center">
+        {/* <div className="form-group justify-center">
           <label id="drink" className="block">Arrival Drink: </label>
 
           <select name="drink" defaultValue="" id="drink-select" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-teal-900 dark:bg-emerald-800 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2 " onChange={ e => handleFieldChange(e)}>
@@ -99,7 +123,7 @@ const Home: NextPage = () => {
             <option value="Non-Alcoholic">Non-Alcoholic</option>
           </select>
           
-        </div>
+        </div> */}
         <div className="form-group">
 
         </div>
