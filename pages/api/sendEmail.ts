@@ -27,7 +27,7 @@ export default function handler(
       from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
       to: 'tomandlottie1994@gmail.com',
       subject: `Save the Date | Response`,
-      text: `${name} has responded to your save the date!`,
+      text: `${req.body.name} has responded to your save the date!`,
       html: `
       <html>
         <body>
@@ -35,11 +35,11 @@ export default function handler(
           <p><b>Email: </b>${req.body.email}</p>
           <p><b>Allergies: </b>${req.body.allergies}</p>
           <p><b>Dietary: </b>${req.body.dietary}</p>
-          <p><b>Drinks: </b>${req.body.drinks}</p>
         </body>
       </html>
       `
     };
+        // <p><b>Drinks: </b>${req.body.drinks}</p>
     
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
