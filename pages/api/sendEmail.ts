@@ -15,6 +15,7 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<TData>
   ): NextApiResponse<TData>{
+    console.log(req.body)
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -34,7 +35,7 @@ export default function handler(
           <p><b>Name: </b>${req.body.name}</p>
           <p><b>Email: </b>${req.body.email}</p>
           <p><b>Allergies: </b>${req.body.allergies}</p>
-          <p><b>Dietary: </b>${req.body.dietary}</p>
+          <p><b>Dietary: </b>${req.body.diet}</p>
         </body>
       </html>
       `
@@ -44,10 +45,10 @@ export default function handler(
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
-        res.status(500).json({ name: error.message })
+        res.status(500).send({ name: error.message })
       } else {
         console.log('Email sent: ' + info.response);
-        res.status(200).json({ name: info.response })
+        res.status(200).send({ name: info.response })
       }
     });
      return res;
