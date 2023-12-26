@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { UploadButton, UploadDropzone } from "../uploadthing/core";
+import { UploadButton, UploadDropzone } from "../../uploadthing/core";
 
 type UploadSectionProps = {
   name?: string,

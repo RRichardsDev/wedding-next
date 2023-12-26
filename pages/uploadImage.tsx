@@ -1,5 +1,5 @@
 import { NextPage } from "next/types";
-import { UploadButton, UploadDropzone } from "./uploadthing/core";
+import { UploadButton, UploadDropzone } from "../uploadthing/core";
 import UploadSection from "./components/UploadSection";
 
 const UploadImage: NextPage = () => {
