@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from 'next/types';
 import nodemailer from 'nodemailer';
 type TData = {
   name: string
@@ -14,7 +14,7 @@ export default function handler(
   function sendEmail(
     req: NextApiRequest,
     res: NextApiResponse<TData>
-  ): NextApiResponse<TData>{
+  ): NextApiResponse<TData> {
     console.log(req.body)
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -23,7 +23,7 @@ export default function handler(
         pass: 'supbqarexsvqelnf'
       }
     });
-    
+
     const mailOptions = {
       from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
       to: 'tomandlottie1994@gmail.com',
@@ -40,8 +40,8 @@ export default function handler(
       </html>
       `
     };
-        // <p><b>Drinks: </b>${req.body.drinks}</p>
-    
+    // <p><b>Drinks: </b>${req.body.drinks}</p>
+
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log(error);
@@ -51,7 +51,7 @@ export default function handler(
         res.status(200).send({ name: info.response })
       }
     });
-     return res;
+    return res;
   }
 }
-export {};
+export { };
