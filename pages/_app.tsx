@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import '../styles/globals.css'
 import { Raleway, EB_Garamond } from '@next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import { config } from 'dotenv';
 config();
 
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           --eb-font: ${eb.style.fontFamily};
         }
       `}</style>
+    <Analytics />
     <Component {...pageProps} />
   </>
 }
