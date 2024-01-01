@@ -1,9 +1,15 @@
 import { NextPage } from "next";
 import { useState } from "react";
 
+type AttendanceState = 'attending' | 'not-attending' | null;
+
 const RSVP: NextPage = () => {
-  const [showingAttending, setShowingAttending] = useState(false);
-  const [showingNotAttending, setShowingNotAttending] = useState(false);
+  const [attendanceState, setAttendanceState] = useState<AttendanceState>(null);
+
+  const handleAttendanceChange = (state: AttendanceState) => {
+    setAttendanceState(state);
+  };
+
   return (
     <>
       <div className="headings flex mx-auto flex-col text-center">
@@ -24,28 +30,32 @@ const RSVP: NextPage = () => {
                   name="attendance"
                   value="able"
                   className="form-radio mr-2"
-                  onClick={() => { setShowingAttending(true); setShowingNotAttending(false) }}
+                  onClick={() => handleAttendanceChange('attending')}
                 />
                 I am able to attend 😊
               </label>
-              {showingAttending && <Attendance showingAttending />}
+              {attendanceState === 'attending' && (
+                <>
+                  <Attendance showingAttending={true} />
+                  <AttendingDetails showingAttending={true} />
+                </>
+              )}
+
               <label className="flex items-center mb-2">
                 <input
                   type="radio"
                   name="attendance"
                   value="unable"
                   className="form-radio mr-2"
-                  onClick={() => { setShowingNotAttending(true); setShowingAttending(false) }}
+                  onClick={() => handleAttendanceChange('not-attending')}
                 />
                 I am unable to attend 😔
               </label>
-              {showingNotAttending && <Attendance showingAttending />}
-
+              {attendanceState === 'not-attending' && <Attendance showingAttending={true} />}
             </div>
-            <AttendingDetails showingAttending={showingAttending} />
             <div className="flex justify-center text-center">
-
               <a className="submit-button" id="submit">Confirm</a>
+
             </div>
           </div>
         </form >
@@ -59,6 +69,7 @@ const RSVP: NextPage = () => {
 };
 const Attendance = ({ showingAttending }: { showingAttending: boolean }) => {
   console.log(showingAttending);
+  if (!showingAttending) return null;
 
   return (
     <>
@@ -88,7 +99,7 @@ const AttendingDetails = ({ showingAttending }: { showingAttending: boolean }) =
       </div>
       <StarterDropdown />
       <MainDropdown />
-      <p className="pb-2 font-thin text-white font-serif ">Desert will be a free for all!</p>
+      <p className="pb-2 font-thin text-white font-serif ">There will be a desserts medley to chose from on the day 🍮🍨</p>
       <div className="headings flex mx-auto flex-col text-center">
         <p className="pb-2 font-thin"><i>Each wedding guest will need to complete this <span className="font-semibold">sepearatly</span>.</i></p>
         <p className="pb-2 font-thin">If you have any dietry requirements&nbsp;
