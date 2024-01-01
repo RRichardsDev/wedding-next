@@ -61,7 +61,8 @@ const RSVP: NextPage = () => {
         </form >
       </div >
       <div className="container mx-auto description">
-        <p className="bigger-text">Hope to see you there!</p>
+        {attendanceState === 'attending' && <p className="bigger-text">Looking forward to seeing you there!</p>}
+        {attendanceState === 'not-attending' && <p className="bigger-text">Sorry you couldn't make it!</p>}
         <p>🤍</p>
       </div>
     </>
