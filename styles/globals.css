@@ -1,10 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'amsterdam-four';
+  src: url('/fonts/amsterdam-four.ttf');
+}
+.amsterdam-four {
+  font-family: 'amsterdam-four';
+}
+
 body {
   background-image: url('/bg.png');
   background-size: cover;
-  background-color: #18241a;  
+  background-color: #18241a;
   /* background-repeat:   repeat; */
   /* background-position: center center; */
 }
@@ -22,7 +30,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 
-  
+
   /* width: fit-content; */
   /* margin: auto; */
 }
@@ -112,14 +120,14 @@ label {
 }
 @-webkit-keyframes autofill {
   0%,100% {
-      color: rgb(205, 205, 205);    
+      color: rgb(205, 205, 205);
       background: transparent;
   }
 }
 #drink-select {
   appearance: none;
   -webkit-appearance: none;
-  
+
 }
 
 input:-webkit-autofill {
