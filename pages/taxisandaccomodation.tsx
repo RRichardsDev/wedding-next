@@ -79,7 +79,7 @@ const InfoCard: React.FC = () => (
           <p className="mb-4 underline mt-11 text-xl">Please pre-book your taxis as the venue is rural and we don't want anyone to be stranded.</p>
           {taxis.map((taxi, index) => (
             <div key={index} className="my-10">
-              <strong className="font-semibold z-50">{taxi.company}</strong> -
+              <strong className="font-semibold z-50">{taxi.company}</strong> - <span className="font-thin">{taxi.phoneNumber}</span>
             </div>
           ))}
         </div>

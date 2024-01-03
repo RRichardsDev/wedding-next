@@ -8,7 +8,12 @@ module.exports = withUt({
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      lineHeight: {
+        'extra-loose': '2.5',
+        '12': '5rem',
+      }
+    },
   },
   plugins: [],
 })
