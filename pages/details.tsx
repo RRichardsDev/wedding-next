@@ -41,7 +41,7 @@ const InfoCard: React.FC = () => (
 
     </div>
     <p className="mb-4 underline mt-11 text-2xl uppercase m-auto w-full text-center font-serif text-slate-100 pb-4">Schedule of the day</p>
-    <Image src="/timeline-bigger.png" alt="a timeline of the day" className="w-4/5 max-w-4xl m-auto" width={300} height={300} /> {/* Reduced z-index */}
+    <Image src="/timeline-bigger.png" alt="a timeline of the day" className="w-full max-w-4xl m-auto" width={300} height={300} /> {/* Reduced z-index */}
   </div>
 );
 
