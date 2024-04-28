@@ -35,9 +35,10 @@ const InfoCard: React.FC = () => {
           <div className="z-10 my-20 ">
             <h2 className='text-5xl'>Where?</h2>
             <p className="mb-4 underline mt-11 text-2xl uppercase">Hanbury Wedding Barn</p>
-            <p className=" mb-4 mt-11 text-xl uppercase">Parsons Break Farm, Hanbury, Burton-on-Trent, DE13 8TN</p>
+            <p className=" mb-4 mt-11 text-xl uppercase">Parsons Break Farm, Hanbury, Burton-on-Trent, DE13 8TN <a href='https://hanburybarns-venue.co.uk/' target='_blank' className="text-xl lowercase underline">(Website)</a></p>
+
           </div>
-          <div className='py-1'>
+          <div className=''>
             <p>🤍</p>
           </div>
         </div>
@@ -50,9 +51,9 @@ const InfoCard: React.FC = () => {
           <div className="z-10 my-20 ">
             <h2 className='text-5xl'>When?</h2>
             <p className="mb-4 underline mt-11 text-2xl uppercase">7th December 2024</p>
-            <p className=" mb-4 mt-11 text-xl uppercase">Please arrive at the veny by <b>1pm</b> for the ceremoney to behing <b>1.30pm</b></p>
+            <p className=" mb-4 mt-11 text-xl uppercase">Please arrive at the venue by <b>1pm</b> for the ceremony to begin <b>1.30pm</b></p>
           </div>
-          <div className='py-1'>
+          <div className=''>
             <p>🤍</p>
           </div>
         </div>
@@ -67,6 +68,8 @@ const InfoCard: React.FC = () => {
         ? <Image src="/timeline-vertical.png" alt="a timeline of the day" className="w-full max-w-4xl m-auto" width={300} height={300} />
         : <Image src="/timeline.png" alt="a timeline of the day" className="w-full max-w-4xl m-auto" width={300} height={300} />
       }
+      <p className="text-slate-100 font-serif text-center mb-4 mt-11 text-xl uppercase">Any questions about the day please reach out to Tom or Lottie</p>
+      <p className='text-center'>🤍</p>
     </div>
   );
 }

@@ -32,7 +32,7 @@ const accommodations: AccommodationInfo[] = [
   }
 ];
 // Styles
-const title = 'text-5xl mb-3 font-thin';
+const title = 'text-4xl mb-3 font-thin';
 
 const taxis: TaxiInfo[] = [
   {
