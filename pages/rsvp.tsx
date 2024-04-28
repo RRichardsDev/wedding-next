@@ -14,7 +14,7 @@ const RSVP: NextPage = () => {
 
   return (
     <>
-          <HamburgerMenu />
+      <HamburgerMenu />
       <div className="headings flex mx-auto flex-col text-center">
         <p className="h3 ">RSVP</p>
         <h2>🤍</h2>
