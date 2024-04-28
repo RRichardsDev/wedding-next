@@ -1,5 +1,7 @@
 import { NextPage } from "next";
 import { useState } from "react";
+import { slide as Menu } from 'react-burger-menu'
+import HamburgerMenu from "./components/HamburgerMenu";
 
 type AttendanceState = 'attending' | 'not-attending' | null;
 
@@ -12,6 +14,7 @@ const RSVP: NextPage = () => {
 
   return (
     <>
+          <HamburgerMenu />
       <div className="headings flex mx-auto flex-col text-center">
         <p className="h3 ">RSVP</p>
         <h2>🤍</h2>

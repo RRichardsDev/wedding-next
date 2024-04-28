@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image'
+import HamburgerMenu from './components/HamburgerMenu';
 
 
 interface AccommodationInfo {
@@ -50,12 +51,16 @@ const taxis: TaxiInfo[] = [
 ];
 
 const InfoCard: React.FC = () => (
+  <>
+  <HamburgerMenu />
+
+
   <div className='m-6'>
     <h1 className="text-6xl font-light text-slate-100 text-center amsterdam-four p-6 py-12">Taxis and Accommodation</h1>
     <div className="flex flex-col md:flex-row lg:m-6 pt-2 font-serif uppercase font-thin text-slate-100 text-center mt-10">
 
       <div className="md:w-1/2 md:text-red md:p-0 md:m-0 relative">
-        <div className="z-10 my-20">
+        <div className="-z-10 my-20">
           <h2 className={title}>Accommodation</h2>
           {accommodations.map((place, index) => (
             <div key={index} className="my-10">
@@ -65,7 +70,7 @@ const InfoCard: React.FC = () => (
           ))}
         </div>
 
-        <Image src="/Suitcase.png" alt="image of suitcase" className="absolute bottom-0 left-0 z-0 object-cover" width={100} height={200} />
+        <Image src="/Suitcase.png" alt="image of suitcase" className="absolute bottom-0 left-0 -z-10 object-cover" width={100} height={200} />
 
         <div className='py-4'>
           <p>🤍</p>
@@ -79,11 +84,11 @@ const InfoCard: React.FC = () => (
           <p className="mb-4 underline mt-11 text-xl">Please pre-book your taxis as the venue is rural and we don't want anyone to be stranded.</p>
           {taxis.map((taxi, index) => (
             <div key={index} className="my-10">
-              <strong className="font-semibold z-50">{taxi.company}</strong> - <span className="font-thin">{taxi.phoneNumber}</span>
+              <strong className="font-semibold -z-10">{taxi.company}</strong> - <span className="font-thin">{taxi.phoneNumber}</span>
             </div>
           ))}
         </div>
-        <Image src="/Car.png" alt="image of a car" className="absolute bottom-0 right-0 -z-50 object-cover" width={300} height={300} /> {/* Reduced z-index */}
+        <Image src="/Car.png" alt="image of a car" className="absolute bottom-0 right-0 -z-30 object-cover" width={300} height={300} /> {/* Reduced z-index */}
         <div className='py-4 z-20'> {/* Increased z-index */}
           <p>🤍</p>
         </div>
@@ -92,6 +97,8 @@ const InfoCard: React.FC = () => (
 
     </div>
   </div>
+
+  </>
 );
 
 export default InfoCard;

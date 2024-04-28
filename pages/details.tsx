@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image'
+import HamburgerMenu from './components/HamburgerMenu';
 
 const InfoCard: React.FC = () => {
   const [isMobile, setIsMobile] = React.useState(false);
@@ -24,6 +25,9 @@ const InfoCard: React.FC = () => {
 
 
   return (
+    <>
+    <HamburgerMenu />
+
     <div className='m-6'>
       <h1 className="text-5xl font-light md:text-6xl text-slate-100 text-center amsterdam-four py-6 leading-extra-loose">Event Details</h1>
       <div className="flex flex-col md:flex-row lg:m-6 pt-2 font-serif font-thin text-slate-100 text-center mt-10">
@@ -71,6 +75,7 @@ const InfoCard: React.FC = () => {
       <p className="text-slate-100 font-serif text-center mb-4 mt-11 text-xl uppercase">Any questions about the day please reach out to Tom or Lottie</p>
       <p className='text-center'>🤍</p>
     </div>
+    </>
   );
 }
 

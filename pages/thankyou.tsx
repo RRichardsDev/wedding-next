@@ -1,9 +1,12 @@
 import { NextPage } from "next/types";
+import HamburgerMenu from "./components/HamburgerMenu";
 
 const ThankYou: NextPage = () => {
 
   return (
     <>
+    <HamburgerMenu />
+
       <div className="h-screen">
         <div className="container description h-screen flex justify-center text-center flex-col mx-auto">
           <h1 className="h1 text-3xl ">THANK YOU! SEE YOU SOON!</h1>
