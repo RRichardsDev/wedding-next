@@ -32,6 +32,8 @@ const HamburgerMenu = () => {
                 <a href="/details" className="block p-4 text-lg text-white hover:underline">Details</a>
                 <a href="/rsvp" className="block p-4 text-lg text-white hover:underline">RSVP</a>
                 <a href="/taxisandaccomodation" className="block p-4 text-lg text-white hover:underline">Taxis & Accommodation</a>
+                <a href="/faq" className="block p-4 text-lg text-white hover:underline">FAQ</a>
+
               </div>
             </div>
         </div>

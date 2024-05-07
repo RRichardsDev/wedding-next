@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useState } from "react";
 import { slide as Menu } from 'react-burger-menu'
 import HamburgerMenu from "./components/HamburgerMenu";
+import RadioButtonGroup from "./components/RadioButtonGroup";
 
 type AttendanceState = 'attending' | 'not-attending' | null;
 
@@ -103,6 +104,8 @@ const AttendingDetails = ({ showingAttending }: { showingAttending: boolean }) =
       </div>
       <StarterDropdown />
       <MainDropdown />
+      <p className="mt-10  font-thin text-white font-serif  ">All Mains are served with Baby Roast Potatoes and Roasted Carrots </p>
+
       <p className="pb-2 font-thin text-white font-serif ">There will be a desserts medley to chose from on the day 🍮🍨</p>
       <div className="headings flex mx-auto flex-col text-center">
         <p className="pb-2 font-thin"><i>Each wedding guest will need to complete this <span className="font-semibold">sepearatly</span>.</i></p>
@@ -116,30 +119,20 @@ const AttendingDetails = ({ showingAttending }: { showingAttending: boolean }) =
 }
 const StarterDropdown = () => {
   return (
-    <div className="form-group w-full">
-      <label id="starter" className="flex flex-wrap justify-center items-center w-full">
+    <div className="form-group flex-col w-full felx mx-auto justify-center">
+      <label id="starter" className="flex flex-wrap justify-center items-center w-full text-3xl">
         Starter:
-        <select name="drink" defaultValue="" id="drink-select" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2">
-          <option value="" disabled hidden>Please Select</option>
-          <option value="Prawn Cocktail">Prawn Cocktail</option>
-          <option value="Ratotouli">Ratotouli</option>
-        </select>
       </label>
+        <p className="mt-10  font-thin text-white font-serif  max-w-xl flex justify-center text-center mx-auto text-xl">Mediterranean Sharing Board </p>
     </div>
   )
 }
 const MainDropdown = () => {
   return (
     <div className="form-group w-full">
-      <label id="starter" className="flex flex-wrap justify-center items-center w-full">
-        Main:
-        <select name="drink" defaultValue="" id="drink-select" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2">
-          <option value="" disabled hidden>Please Select</option>
-          <option value="Prawn Cocktail">Beef</option>
-          <option value="Ratotouli">Fish</option>
-          <option value={"dietery"}>Dietry</option>
-        </select>
-      </label>
+      <label id="starter" className="flex flex-col flex-wrap justify-center items-center w-full">
+        <RadioButtonGroup />
+      </label >
     </div>
   )
 }

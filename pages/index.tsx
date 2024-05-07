@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 const Home: NextPage = () => {
   // redirect to save the date page
   useEffect(() => {
-    window.location.href = '/savethedate'
+    window.location.href = '/rsvp'
   }, [])
   // fetch ('http://localhost:3000/api/controllers/sendEmail', {
   //   method: 'POST',
