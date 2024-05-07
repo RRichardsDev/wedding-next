@@ -36,6 +36,8 @@ export default function handler(
           <p><b>Email: </b>${req.body.email}</p>
           <p><b>Allergies: </b>${req.body.allergies}</p>
           <p><b>Dietary: </b>${req.body.diet}</p>
+          <p><b>Main: </b>${req.body.main}</p>
+          <p><b>Drinks: </b>${req.body.drink}</p>
         </body>
       </html>
       `

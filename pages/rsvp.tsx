@@ -1,5 +1,7 @@
+"use client";
+
 import { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { slide as Menu } from 'react-burger-menu'
 import HamburgerMenu from "./components/HamburgerMenu";
 import RadioButtonGroup from "./components/RadioButtonGroup";
@@ -12,6 +14,37 @@ const RSVP: NextPage = () => {
   const handleAttendanceChange = (state: AttendanceState) => {
     setAttendanceState(state);
   };
+  useEffect(() => {
+    const main = document.cookie.replace(/(?:(?:^|.*;\s*)main\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+    console.log(main);
+  }, [])
+
+  const handleSubmit = async () => {
+    const name = document.getElementById('name') as HTMLInputElement;
+    const email = document.getElementById('email') as HTMLInputElement;
+    // const allergies = document.getElementById('allergies') as HTMLInputElement;
+    const diet = document.getElementById('diet') as HTMLInputElement ?? "";
+    const drink = document.getElementById('drink') as HTMLInputElement ?? "";
+    const main = document.cookie.replace(/(?:(?:^|.*;\s*)main\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+    const body = {
+      name: name.value,
+      email: email.value,
+      allergies: diet.value ?? "N/A",
+      diet: diet.value ?? "N/A",
+      drink: drink.value ?? "N/A",
+      main
+    }
+    console.log(body);
+    fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+  }
 
   return (
     <>
@@ -58,7 +91,7 @@ const RSVP: NextPage = () => {
               {attendanceState === 'not-attending' && <Attendance showingAttending={true} />}
             </div>
             <div className="flex justify-center text-center">
-              <a className="submit-button" id="submit">Confirm</a>
+              <a className="submit-button" id="submit" onClick={handleSubmit}>Confirm</a>
 
             </div>
           </div>
@@ -104,6 +137,7 @@ const AttendingDetails = ({ showingAttending }: { showingAttending: boolean }) =
       </div>
       <StarterDropdown />
       <MainDropdown />
+      <Drink />
       <p className="mt-10  font-thin text-white font-serif  ">All Mains are served with Baby Roast Potatoes and Roasted Carrots </p>
 
       <p className="pb-2 font-thin text-white font-serif ">There will be a desserts medley to chose from on the day 🍮🍨</p>
@@ -140,7 +174,31 @@ const Dietry = () => {
   return (
     <div className="form-group">
       <label >Dietary Requirements:</label>
-      <textarea name="drink" placeholder="Vegan, Soy Intollerant..." id="drink-select" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2" />
+      <textarea  name="dietry" placeholder="Vegan, Soy Intollerant..." id="diet" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2" />
+    </div>
+  )
+}
+
+const Drink = () => {
+// Prosecco
+// Pink Prosecco
+// Gin and tonic
+// Peroni
+// Mulled wine
+  return (
+  <div className="form-group w-full">
+      <label id="starter" className="flex flex-wrap justify-center items-center w-full">
+        Drink:
+        <select name="drink" defaultValue="" id="drink" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2">
+          <option value="" disabled hidden>Please Select</option>
+          <option value="Prosecco">Prosecco</option>
+          <option value="Pink Prosecco">Pink Prosecco</option>
+          <option value="Gin and tonic">Gin and tonic</option>
+          <option value="Peroni">Peroni</option>
+          <option value="Mulled wine">Mulled wine</option>
+
+        </select>
+      </label>
     </div>
   )
 }

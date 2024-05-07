@@ -1,10 +1,14 @@
+"use client";
+
 import React, { useState } from 'react';
 
 function RadioButtonGroup() {
   const [selectedOption, setSelectedOption] = useState(1);
 
   const handleChange = (event: any) => {
-    setSelectedOption(event);
+    console.log(event.target.value);
+    document.cookie = `main=${event.target.value}`;
+    setSelectedOption(event.target.value);
   };
 
   return (
@@ -17,9 +21,9 @@ function RadioButtonGroup() {
         <div>
           <input
             type="radio"
-            value="1"
-            checked={selectedOption === 1}
-            onChange={()=>handleChange(1)}
+            value={1}
+            checked={selectedOption == 1}
+            onChange={handleChange}
           />
         </div>
         <div className='max-w-xl text-center flex justify-center mx-auto'>
@@ -28,9 +32,9 @@ function RadioButtonGroup() {
         <div>
           <input
             type="radio"
-            value="2"
-            checked={selectedOption === 2}
-            onChange={()=>handleChange(2)}
+            value={2}
+            checked={selectedOption == 2}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -39,9 +43,9 @@ function RadioButtonGroup() {
         <div>
           <input
             type="radio"
-            value="3"
-            checked={selectedOption === 3}
-            onChange={()=>handleChange(3)}
+            value={3}
+            checked={selectedOption == 3}
+            onChange={handleChange}
           />
         </div>
         <div>
