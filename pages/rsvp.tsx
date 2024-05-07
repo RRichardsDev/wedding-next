@@ -140,10 +140,17 @@ const AttendingDetails = ({ showingAttending }: { showingAttending: boolean }) =
       <Drink />
       <p className="mt-10  font-thin text-white font-serif  ">All Mains are served with Baby Roast Potatoes and Roasted Carrots </p>
 
+      <div className="my-6">
+        <label id="starter" className="flex flex-wrap justify-center items-center w-full text-3xl mt-3xl">
+          Desert:
+        </label>
+
+      </div>
       <p className="pb-2 font-thin text-white font-serif ">There will be a desserts medley to chose from on the day 🍮🍨</p>
       <div className="headings flex mx-auto flex-col text-center">
         <p className="pb-2 font-thin"><i>Each wedding guest will need to complete this <span className="font-semibold">sepearatly</span>.</i></p>
-        <p className="pb-2 font-thin">If you have any dietry requirements&nbsp;
+        <p className="pb-2 font-thin"><i>Please ensure you enter dietary needs or allergies or we will be unable to cater for you.</i></p>
+        <p className="pb-2 font-thin">If you have any dietary requirements&nbsp;
           <a onClick={handleDietry} className="underline cursor-pointer">click here</a>.</p>
         {showingDietry && <Dietry />}
         <p>🤍</p>
@@ -172,9 +179,9 @@ const MainDropdown = () => {
 }
 const Dietry = () => {
   return (
-    <div className="form-group">
+    <div className="form-group flex-col flex text-center mx-auto justify-center">
       <label >Dietary Requirements:</label>
-      <textarea  name="dietry" placeholder="Vegan, Soy Intollerant..." id="diet" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ml-4 mt-2" />
+      <textarea  name="dietry" placeholder="Vegan, Soy Intollerant..." id="diet" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full m-0 mt-5" />
     </div>
   )
 }
