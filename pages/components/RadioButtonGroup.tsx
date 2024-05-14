@@ -33,7 +33,7 @@ function RadioButtonGroup() {
           />
         </div>
         <div className='max-w-sm flex m-auto'>
-        Slow cooked pork belly with caramelised apples, apple compote &; crackling
+        Slow cooked pork belly with caramelised apples, apple compote & crackling
         </div>
         <div>
           <input
