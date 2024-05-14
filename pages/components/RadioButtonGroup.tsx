@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 function RadioButtonGroup() {
   const [selectedOption, setSelectedOption] = useState(1);
+  document.cookie = `main=1`;
 
   const handleChange = (event: any) => {
     console.log(event.target.value);
