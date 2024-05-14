@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { slide as Menu } from 'react-burger-menu'
 import HamburgerMenu from "./components/HamburgerMenu";
 import RadioButtonGroup from "./components/RadioButtonGroup";
+import { useRouter } from 'next/router'
 
 type AttendanceState = 'attending' | 'not-attending' | null;
 
@@ -44,6 +45,8 @@ const RSVP: NextPage = () => {
       },
       body: JSON.stringify(body)
     })
+    const router = useRouter()
+    router.push('/thankyou')
   }
 
   return (
@@ -135,22 +138,22 @@ const AttendingDetails = ({ showingAttending }: { showingAttending: boolean }) =
       <div className="headings flex mx-auto flex-col text-center">
         <p className="h3">Menu Options</p>
       </div>
+      <Drink />
       <StarterDropdown />
       <MainDropdown />
-      <Drink />
-      <p className="mt-10  font-thin text-white font-serif  ">All Mains are served with Baby Roast Potatoes and Roasted Carrots </p>
+      <p className="mt-10  font-thin text-white font-serif max-w-sm ">All Mains are served with Baby Roast Potatoes and Roasted Carrots </p>
 
       <div className="my-6">
         <label id="starter" className="flex flex-wrap justify-center items-center w-full text-3xl mt-3xl">
-          Desert:
+          Dessert:
         </label>
 
       </div>
-      <p className="pb-2 font-thin text-white font-serif ">There will be a desserts medley to chose from on the day 🍮🍨</p>
-      <div className="headings flex mx-auto flex-col text-center">
-        <p className="pb-2 font-thin"><i>Each wedding guest will need to complete this <span className="font-semibold">sepearatly</span>.</i></p>
+      <p className="pb-2 font-thin text-white font-serif max-w-sm">There will be a desserts medley to chose from on the day 🍮🍨</p>
+      <div className="headings flex mx-auto flex-col text-center max-w-sm">
+        <p className="pb-2 font-thin max-w-sm"><i>Each wedding guest will need to complete this <span className="font-semibold">sepearatly</span>.</i></p>
         <p className="pb-2 font-thin"><i>Please ensure you enter dietary needs or allergies or we will be unable to cater for you.</i></p>
-        <p className="pb-2 font-thin">If you have any dietary requirements&nbsp;
+        <p className="pb-2 font-thin text-xl">If you have any dietary requirements&nbsp;
           <a onClick={handleDietry} className="underline cursor-pointer">click here</a>.</p>
         {showingDietry && <Dietry />}
         <p>🤍</p>
@@ -181,7 +184,7 @@ const Dietry = () => {
   return (
     <div className="form-group flex-col flex text-center mx-auto justify-center">
       <label >Dietary Requirements:</label>
-      <textarea  name="dietry" placeholder="Vegan, Soy Intollerant..." id="diet" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full m-0 mt-5" />
+      <textarea  name="dietry" placeholder="Vegan, Soy Intollerant..." id="diet" className="w-1/2 bg-green-50 border border-green-300 text-green-900 text-lg rounded-lg focus:ring-green-500 focus:border-green-500 p-2.5 dark:bg-emerald-800 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-full m-0 mt-5" />
     </div>
   )
 }

@@ -26,7 +26,7 @@ function RadioButtonGroup() {
             onChange={handleChange}
           />
         </div>
-        <div className='max-w-xl text-center flex justify-center mx-auto'>
+        <div className='max-w-md text-center flex justify-center mx-auto'>
         Slow cooked shoulder of lamb stuffed with oregano, mint & lemon. Served with fresh mint sauce & redcurrant & red wine reduction
         </div>
         <div>
@@ -37,7 +37,7 @@ function RadioButtonGroup() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className='max-w-sm flex m-auto'>
         Slow cooked pork belly with caramelised apples, apple compote &; crackling
         </div>
         <div>
@@ -48,7 +48,7 @@ function RadioButtonGroup() {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className='max-w-md'>
         Roast Mediterranean filo parcels with basil oil. (V and Vg)
         </div>
       {/* </form> */}
