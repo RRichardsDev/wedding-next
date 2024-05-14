@@ -24,6 +24,16 @@ export default function handler(
       }
     });
 
+    let meal;
+
+    if (req.body.meal == '1') {
+      meal = 'Slow cooked shoulder of lamb stuffed with oregano, mint & lemon. Served with fresh mint sauce & redcurrant & red wine reduction'
+    } else if (req.body.meal == '2') {
+      meal = 'Slow cooked pork belly with caramelised apples, apple compote &; crackling'
+    } else if (req.body.meal == '3') {
+      meal = 'Roast Mediterranean filo parcels with basil oil. (V and Vg)'
+    }
+
     const mailOptions = {
       from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
       to: 'tomandlottie1994@gmail.com',
