@@ -21,6 +21,8 @@ const RSVP: NextPage = () => {
     console.log(main);
   }, [])
 
+  const router = useRouter()
+
   const handleSubmit = async () => {
     const name = document.getElementById('name') as HTMLInputElement;
     const email = document.getElementById('email') as HTMLInputElement;
@@ -45,7 +47,6 @@ const RSVP: NextPage = () => {
       },
       body: JSON.stringify(body)
     })
-    const router = useRouter()
     router.push('/thankyou')
   }
 

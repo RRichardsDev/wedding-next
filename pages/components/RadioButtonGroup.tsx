@@ -16,24 +16,16 @@ function RadioButtonGroup() {
       <label id="main" className="flex flex-wrap justify-center items-center w-full text-3xl mb-10">
         Main:
       </label>
-      <p>Select an option:</p>
+      <p className='pb-6'>Select an option:</p>
       {/* <form> */}
-        <div>
-          <input
-            type="radio"
-            value={1}
-            checked={selectedOption == 1}
-            onChange={handleChange}
-          />
-        </div>
         <div className='max-w-md text-center flex justify-center mx-auto'>
         Slow cooked shoulder of lamb stuffed with oregano, mint & lemon. Served with fresh mint sauce & redcurrant & red wine reduction
         </div>
         <div>
           <input
             type="radio"
-            value={2}
-            checked={selectedOption == 2}
+            value={1}
+            checked={selectedOption == 1}
             onChange={handleChange}
           />
         </div>
@@ -43,13 +35,21 @@ function RadioButtonGroup() {
         <div>
           <input
             type="radio"
-            value={3}
-            checked={selectedOption == 3}
+            value={2}
+            checked={selectedOption == 2}
             onChange={handleChange}
           />
         </div>
         <div className='max-w-md'>
         Roast Mediterranean filo parcels with basil oil. (V and Vg)
+        </div>
+        <div>
+          <input
+            type="radio"
+            value={3}
+            checked={selectedOption == 3}
+            onChange={handleChange}
+          />
         </div>
       {/* </form> */}
     </div>
