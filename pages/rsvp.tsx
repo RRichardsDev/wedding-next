@@ -6,6 +6,7 @@ import { slide as Menu } from 'react-burger-menu'
 import HamburgerMenu from "./components/HamburgerMenu";
 import RadioButtonGroup from "./components/RadioButtonGroup";
 import { useRouter } from 'next/router'
+import Head from "next/head";
 
 type AttendanceState = 'attending' | 'not-attending' | null;
 
@@ -52,6 +53,11 @@ const RSVP: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>RSVP</title>
+        <meta name="description" content="This is a description of my Next.js app" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <HamburgerMenu />
       <div className="headings flex mx-auto flex-col text-center">
         <p className="h3 ">RSVP</p>

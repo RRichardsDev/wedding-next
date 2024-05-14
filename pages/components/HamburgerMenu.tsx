@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Raleway } from 'next/font/google';
+import Head from 'next/head';
 
 
 const HamburgerMenu = () => {
@@ -9,6 +10,11 @@ const HamburgerMenu = () => {
 
     return (
         <div className={`${isOpen ? 'fixed inset-0 bg-black bg-opacity-50' : 'absolute right-0'} font-serif h-full z-40`}>
+            <Head>
+                <title>Tom & Lottie Wedding</title>
+                <meta name="description" content="This is a description of my Next.js app" />
+                <link rel="icon" href="/favicon.png" />
+            </Head>
             {/* Hamburger Icon */}
             <button
                 className="block p-4 focus:outline-none"
