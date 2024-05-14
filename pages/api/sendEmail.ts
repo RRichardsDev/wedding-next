@@ -26,12 +26,13 @@ export default function handler(
 
     let meal;
 
-    if (req.body.meal == '1') {
-      meal = 'Slow cooked shoulder of lamb stuffed with oregano, mint & lemon. Served with fresh mint sauce & redcurrant & red wine reduction'
-    } else if (req.body.meal == '2') {
-      meal = 'Slow cooked pork belly with caramelised apples, apple compote &; crackling'
-    } else if (req.body.meal == '3') {
-      meal = 'Roast Mediterranean filo parcels with basil oil. (V and Vg)'
+    console.log("body",req.body)
+    if (req.body.main == '1') {
+      meal = 'lamb'
+    } else if (req.body.main == '2') {
+      meal = 'pork'
+    } else if (req.body.main == '3') {
+      meal = 'veggie'
     }
 
     const mailOptions = {
