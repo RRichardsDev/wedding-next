@@ -38,7 +38,7 @@ export default function handler(
     const mailOptions = {
       from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
       to: 'tomandlottie1994@gmail.com',
-      subject: `Save the Date | Response`,
+      subject: `THE ACTUAL FKIN WEDDING | Response`,
       text: `${req.body.name} has responded to your save the date!`,
       html: `
       <html>
