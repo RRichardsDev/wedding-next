@@ -213,6 +213,7 @@ const Drink = () => {
           <option value="Gin and tonic">Gin and tonic</option>
           <option value="Peroni">Peroni</option>
           <option value="Mulled wine">Mulled wine</option>
+          <option value="Elderflower">Elderflower Presse (Non-Alcoholic)</option>
 
         </select>
       </label>
