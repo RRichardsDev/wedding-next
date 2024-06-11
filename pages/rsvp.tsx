@@ -68,7 +68,7 @@ const RSVP: NextPage = () => {
         <h2 className="italic">Can you make it?</h2>
       </div>
 
-      <div className="container p-4 mx-auto w-full h-screen">
+      <div className="container p-4 mx-auto w-full">
         <form id="rsvp-form" action="./sendEmail.php" method="post">
           <div className="flex flex-col justify-center text-center items-center">
             <div className="form-group flex flex-col items-center">
