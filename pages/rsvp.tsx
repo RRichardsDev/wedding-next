@@ -33,6 +33,7 @@ const RSVP: NextPage = () => {
     const main = document.cookie.replace(/(?:(?:^|.*;\s*)main\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 
     const body = {
+      attendanceState,
       name: name.value,
       email: email.value,
       allergies: diet.value ?? "N/A",

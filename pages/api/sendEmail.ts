@@ -35,24 +35,45 @@ export default function handler(
       meal = 'veggie'
     }
 
-    const mailOptions = {
-      from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
-      to: 'tomandlottie1994@gmail.com',
-      subject: `THE ACTUAL FKIN WEDDING | Response`,
-      text: `${req.body.name} has responded to your save the date!`,
-      html: `
-      <html>
-        <body>
-          <p><b>Name: </b>${req.body.name}</p>
-          <p><b>Email: </b>${req.body.email}</p>
-          <p><b>Allergies: </b>${req.body.allergies}</p>
-          <p><b>Dietary: </b>${req.body.diet}</p>
-          <p><b>Main: </b>${meal}</p>
-          <p><b>Drinks: </b>${req.body.drink}</p>
-        </body>
-      </html>
-      `
-    };
+    let mailOptions
+    if (req.body.attendanceState === 'attending') {
+
+      mailOptions = {
+        from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
+        to: 'tomandlottie1994@gmail.com',
+        subject: `THE ACTUAL FKIN WEDDING | Response`,
+        text: `${req.body.name} has responded to your save the date!`,
+        html: `
+        <html>
+          <body>
+            <p><b>Name: </b>${req.body.name}</p>
+            <p><b>Email: </b>${req.body.email}</p>
+            <p><b>Allergies: </b>${req.body.allergies}</p>
+            <p><b>Dietary: </b>${req.body.diet}</p>
+            <p><b>Main: </b>${meal}</p>
+            <p><b>Drinks: </b>${req.body.drink}</p>
+          </body>
+        </html>
+        `
+      };
+    } else {
+      mailOptions = {
+        from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
+        to: 'tomandlottie1994@gmail.com',
+        subject: `THE ACTUAL FKIN WEDDING | Response`,
+        text: `${req.body.name} has responded to your save the date!`,
+        html: `<html>
+          <body>
+            <p><b>Name: </b>${req.body.name}</p>
+            <p><b>Email: </b>${req.body.email}</p>
+            <p><b>Allergies: </b>Cant come, because I hate you</p>
+          </body>
+        </html>
+        `
+      }
+    }
+
+
     // <p><b>Drinks: </b>${req.body.drinks}</p>
 
     transporter.sendMail(mailOptions, (error, info) => {
