@@ -41,7 +41,7 @@ export default function handler(
       console.log("req.body",req.body)
 
       mailOptions = {
-        from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
+        from: '"Wedding Mail | Evening 👰" <rhodri.development@gmail.com>',
         to: 'tomandlottie1994@gmail.com',
         subject: `THE ACTUAL FKIN WEDDING | Evening Loosers`,
         text: `${req.body.name} has responded to your save the date!`,
@@ -50,10 +50,6 @@ export default function handler(
           <body>
             <p><b>Name: </b>${req.body.name}</p>
             <p><b>Email: </b>${req.body.email}</p>
-            <p><b>Allergies: </b>${req.body.allergies}</p>
-            <p><b>Dietary: </b>${req.body.diet}</p>
-            <p><b>Main: </b>${meal}</p>
-            <p><b>Drinks: </b>${req.body.drink}</p>
           </body>
         </html>
         `

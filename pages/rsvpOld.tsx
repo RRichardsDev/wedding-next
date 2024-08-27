@@ -85,7 +85,7 @@ const RSVP: NextPage = () => {
               {attendanceState === 'attending' && (
                 <>
                   <Attendance showingAttending={true} />
-                  {/* <AttendingDetails showingAttending={true} /> */}
+                  <AttendingDetails showingAttending={true} />
                 </>
               )}
 
