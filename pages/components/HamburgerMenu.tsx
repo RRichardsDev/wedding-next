@@ -36,7 +36,7 @@ const HamburgerMenu = () => {
             <div className={`${isOpen ? 'block' : 'hidden'} w-full h-full absolute top-0 left-0 bg-black bg-opacity-50 z-40`}>
               <div className="flex flex-col justify-center text-center h-full">
                 <a href="/details" className="block p-4 text-lg text-white hover:underline">Details</a>
-                <a href="/rsvp" className="block p-4 text-lg text-white hover:underline">RSVP</a>
+                <a href="/rsvpEvening" className="block p-4 text-lg text-white hover:underline">RSVP</a>
                 <a href="/taxisandaccomodation" className="block p-4 text-lg text-white hover:underline">Taxis & Accommodation</a>
                 <a href="/faq" className="block p-4 text-lg text-white hover:underline">FAQ</a>
 

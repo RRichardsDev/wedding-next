@@ -38,10 +38,12 @@ export default function handler(
     let mailOptions
     if (req.body.attendanceState === 'attending') {
 
+      console.log("req.body",req.body)
+
       mailOptions = {
         from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
         to: 'tomandlottie1994@gmail.com',
-        subject: `THE ACTUAL FKIN WEDDING | Response`,
+        subject: `THE ACTUAL FKIN WEDDING | Evening Loosers`,
         text: `${req.body.name} has responded to your save the date!`,
         html: `
         <html>
@@ -60,7 +62,7 @@ export default function handler(
       mailOptions = {
         from: '"Wedding Mail 👰" <rhodri.development@gmail.com>',
         to: 'tomandlottie1994@gmail.com',
-        subject: `THE ACTUAL FKIN WEDDING | Response`,
+        subject: `THE ACTUAL FKIN WEDDING | Evening Loosers`,
         text: `${req.body.name} has responded to your save the date!`,
         html: `<html>
           <body>
