@@ -38,6 +38,8 @@ export default function handler(
     let mailOptions
     if (req.body.attendanceState === 'attending') {
 
+      const t = '';
+
       console.log("req.body",req.body)
 
       mailOptions = {
