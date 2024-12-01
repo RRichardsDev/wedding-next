@@ -88,7 +88,7 @@ const InfoCard: React.FC = () => (
             </div>
           ))}
         </div>
-        <Image src="/Car.png" alt="image of a car" className="absolute bottom-0 right-0 -z-30 object-cover" width={300} height={300} /> {/* Reduced z-index */}
+
         <div className='py-4 z-20'> {/* Increased z-index */}
           <p>🤍</p>
         </div>
